@@ -2,28 +2,23 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\User;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class Task extends Model
 {
-    use Notifiable;
-
     /**
-     * The attributes that are mass assignable.
+     * 這些屬性能被批量賦值。
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $fillable = ['name'];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
+     * 取得擁有此任務的使用者。
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

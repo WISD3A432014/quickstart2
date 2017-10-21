@@ -2,14 +2,17 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Task extends Model
+class User extends Authenticatable
 {
+    // 其他的 Eloquent 屬性...
+
     /**
-     * 這些屬性能被批量賦值。
-     *
-     * @var array
+     * 取得該使用者的所有任務。
      */
-    protected $fillable = ['name'];
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
