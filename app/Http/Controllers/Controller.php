@@ -42,4 +42,11 @@ class TaskController extends Controller
             'tasks' => $this->tasks->forUser($request->user()),
         ]);
     }
+
+public function destroy(Request $request, Task $task)
+{
+    $this->authorize('destroy', $task);
+
+    // 刪除該任務...
+}
 }
