@@ -6,16 +6,12 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function store(Request $request)
+    public function index(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:255',
-        ]);
+        $tasks = Task::where('user_id', $request->user()->id)->get();
 
-        $request->user()->tasks()->create([
-            'name' => $request->name,
+        return view('tasks.index', [
+            'tasks' => $tasks,
         ]);
-
-        return redirect('/tasks');
     }
 }
