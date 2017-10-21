@@ -29,6 +29,7 @@
                             </td>
 
                             <td>
+                                <input type="hidden" name="_method" value="DELETE">
                         <tr>
                             <!-- 任務名稱 -->
                             <td class="table-text">
