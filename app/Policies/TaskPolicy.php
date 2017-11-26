@@ -3,22 +3,17 @@
 namespace App\Policies;
 
 use App\User;
-use App\Task;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TaskPolicy
 {
-    use HandlesAuthorization;
-
     /**
-     * 判斷當給定的使用者可以刪除給定的任務。
+     * 建立一個新的控制器實例。
      *
-     * @param  User  $user
-     * @param  Task  $task
-     * @return bool
+     * @return void
      */
-    public function destroy(User $user, Task $task)
+    public function __construct()
     {
-        return $user->id === $task->user_id;
+        $this->middleware('auth');
     }
 }

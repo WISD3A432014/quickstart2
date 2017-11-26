@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Providers;
-
+use App\Policies\TaskPolicy;
+use App\Task;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 

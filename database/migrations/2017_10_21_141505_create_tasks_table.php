@@ -1,12 +1,12 @@
 <?php
-
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateTasksTable extends Migration
 {
     /**
-     * 執行遷移。
+     * Run the migrations.
      *
      * @return void
      */
@@ -27,6 +27,6 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tasks');
+        Schema::dropIfExists('tasks');
     }
 }

@@ -11,22 +11,17 @@
 |
 */
 
+Route::auth();
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::auth();
+
+Route::get('/home',function (){
+    return view('home.home');
+});
+
+
 Route::get('/tasks', 'TaskController@index');
 Route::post('/task', 'TaskController@store');
-Route::delete('/task/{task}', 'TaskController@destroy');
-
-/**
- * 移除給定的任務。
- *
- * @param  Request  $request
- * @param  Task  $task
- * @return Response
- */
-public function destroy(Request $request, Task $task)
-{
-    //
-}
+Route::delete('/task/{task}', 'TaskController@destory');
